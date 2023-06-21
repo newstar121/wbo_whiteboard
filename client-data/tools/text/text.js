@@ -42,7 +42,7 @@
 		"text": '',
 		"spellcheck": false,
 		"id": null,
-
+		"isNew": false,
 	};
 
 	var active = false;
@@ -74,6 +74,7 @@
 			curText.id = Tools.generateUID();
 			curText.color = Tools.getColor();
 			curText._color = Tools.getColor();
+			curText.isNew = true;
 			Tools.setColor(curText.color);
 			startEdit();
 			evt.preventDefault();
@@ -91,7 +92,7 @@
 		curText.text = elem.innerText;
 		curText.fontSize = parseInt(elem.style['font-size']) * Tools.scale;
 		curText.color = elem.style['color'];
-		
+
 		//currentColor.style.backgroundColor = curText.backgroundColor;
 		const fontFamily = elem.style['font-family'].replace(/"/g, '');
 		curText.fontName = fontFamily;
@@ -248,14 +249,25 @@
 				document.getElementById(data.id).setAttribute('height', data.parentHeight || 0);
 				document.getElementById(data.id).setAttribute('width', data.parentWidth || 0);
 				//textField.setAttribute("id", data.id);
-				textField.setAttribute("style", `
-				font-family: ${data.fontName}; 
-				// color: ${data.color}; 
-				color: transparent;
-				padding: 7px 7px 7px 7px;
-				
-				border-radius: 15px;
-				font-size: ${data.fontSize}px;`);
+				if (data.isNew) {
+					textField.setAttribute("style", `
+						font-family: ${data.fontName}; 
+						// color: ${data.color}; 
+						color: transparent;
+						padding: 7px 7px 7px 7px;
+						
+						border-radius: 15px;
+						font-size: ${data.fontSize}px;`);
+				} else {
+					textField.setAttribute("style", `
+						font-family: ${data.fontName}; 
+						color: ${data.color}; 
+						padding: 7px 7px 7px 7px;
+						
+						border-radius: 15px;
+						font-size: ${data.fontSize}px;`);
+				}
+
 
 				//input.style.width = data.parentWidth + 'px';
 				//input.style.height = data.parentHeight + 'px';
