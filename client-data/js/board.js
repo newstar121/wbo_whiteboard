@@ -101,6 +101,7 @@ Tools.HTML = {
 		}
 		let toolOpenedFromClick = false;
 		const toolEl = document.getElementById('Tool-' + toolName);
+		if(!toolEl) return; 
 		const toolParentEl = document.getElementById('Tool-' + toolName).parentElement;
 		const subTools = toolParentEl.getElementsByClassName('sub-tool-item');
 
@@ -239,8 +240,7 @@ Tools.add = function (newTool) {
 Tools.change = function (toolName, subToolIndex) {
 	let newTool = Tools.list[toolName];
 	let oldTool = Tools.curTool;
-	console.log(toolName);
-	console.log(subToolIndex);
+	
 	const toolEl = document.getElementById('Tool-' + toolName);
 	if (toolEl.classList) {
 		toolEl.classList.remove('fix');
