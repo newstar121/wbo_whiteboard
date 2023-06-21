@@ -2,8 +2,10 @@ const fs = require("../server/fs_promises.js");
 const os = require("os");
 const path = require("path");
 
-const PORT = 8487
-const SERVER = 'http://localhost:' + PORT;
+const PORT = 8080
+// const SERVER = 'http://localhost:' + PORT;
+const SEVER = 'https://wbo-whiteboard.onrender.com:' + PORT;
+
 
 let wbo, data_path;
 
