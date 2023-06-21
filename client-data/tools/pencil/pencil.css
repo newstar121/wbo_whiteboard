@@ -1,0 +1,11 @@
+#canvas path:not(.pretty-cursor) {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+
+#canvas path.dotted {
+	stroke-dasharray: 15;
+	stroke-linecap: butt;
+} 

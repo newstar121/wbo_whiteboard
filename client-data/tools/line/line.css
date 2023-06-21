@@ -1,0 +1,10 @@
+#canva line {
+	fill: none;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+#canva line.dotted {
+	stroke-dasharray: 15;
+	stroke-linecap: butt;
+}

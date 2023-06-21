@@ -1,0 +1,26 @@
+node_modules
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+
+.DS_Store
+
+wbo-backup*
+
+# Jetbrains
+.idea/
+
+# Nightwatch test results
+tests_output/
