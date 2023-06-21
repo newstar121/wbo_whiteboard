@@ -258,6 +258,7 @@
 						
 						border-radius: 15px;
 						font-size: ${data.fontSize}px;`);
+					data.isNew = false;
 				} else {
 					textField.setAttribute("style", `
 						font-family: ${data.fontName}; 
