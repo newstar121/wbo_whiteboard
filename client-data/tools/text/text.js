@@ -249,26 +249,14 @@
 				document.getElementById(data.id).setAttribute('height', data.parentHeight || 0);
 				document.getElementById(data.id).setAttribute('width', data.parentWidth || 0);
 				//textField.setAttribute("id", data.id);
-				if (data.isNew) {
-					textField.setAttribute("style", `
-						font-family: ${data.fontName}; 
-						// color: ${data.color}; 
-						color: transparent;
-						padding: 7px 7px 7px 7px;
-						
-						border-radius: 15px;
-						font-size: ${data.fontSize}px;`);
-					data.isNew = false;
-				} else {
-					textField.setAttribute("style", `
-						font-family: ${data.fontName}; 
-						color: ${data.color}; 
-						padding: 7px 7px 7px 7px;
-						
-						border-radius: 15px;
-						font-size: ${data.fontSize}px;`);
-				}
-
+				textField.setAttribute("style", `
+					font-family: ${data.fontName}; 
+					// color: ${data.color}; 
+					color: transparent;
+					padding: 7px 7px 7px 7px;
+					
+					border-radius: 15px;
+					font-size: ${data.fontSize}px;`);
 
 				//input.style.width = data.parentWidth + 'px';
 				//input.style.height = data.parentHeight + 'px';
@@ -300,14 +288,26 @@
 		//elem.style.color = fieldData.color;
 		const textEl = document.createElement("pre");
 		elem.id = fieldData.id;
-		textEl.setAttribute("style", `
-		font-family: ${fieldData.fontName}; 
-		// color: ${fieldData.color}; 
-		color: transparent;
-		padding: 7px 7px 7px 7px;
-	    
-		border-radius: 15px;
-		font-size: ${fieldData.fontSize}px;`);
+		if(fieldData.isNew) {
+			textEl.setAttribute("style", `
+				font-family: ${fieldData.fontName}; 
+				// color: ${fieldData.color}; 
+				color: transparent;
+				padding: 7px 7px 7px 7px;
+				
+				border-radius: 15px;
+				font-size: ${fieldData.fontSize}px;`);
+			fieldData.isNew = false;
+		} else {
+			textEl.setAttribute("style", `
+				font-family: ${fieldData.fontName}; 
+				color: ${fieldData.color}; 
+				padding: 7px 7px 7px 7px;
+				
+				border-radius: 15px;
+				font-size: ${fieldData.fontSize}px;`);
+		}
+		
 
 		if (fieldData.text) updateText(textEl, fieldData.text, elem);
 		elem.appendChild(textEl);
